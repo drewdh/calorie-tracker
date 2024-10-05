@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AppLayout from '@cloudscape-design/components/app-layout';
+import Header from '@cloudscape-design/components/header';
+import Table from '@cloudscape-design/components/table';
+import TopNavigation from '@cloudscape-design/components/top-navigation';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <TopNavigation data-id="top-nav" identity={{ href: '/', title: 'Calorie Tracker' }} />
+      <AppLayout
+        headerSelector="[data-id='top-nav']"
+        content={
+          <Table
+            columnDefinitions={[]}
+            header={<Header variant="awsui-h1-sticky">Log</Header>}
+            items={[]}
+            stickyHeader
+            variant="full-page"
+          />
+        }
+        navigationHide
+        toolsHide
+      />
+    </>
   );
 }
-
-export default App;
